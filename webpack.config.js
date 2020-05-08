@@ -7,7 +7,7 @@ module.exports = {
 
   devtool: "inline-source-map",
   devServer: {
-    contentBase: "./dist",
+    watchContentBase: true,
     hot: true,
   },
   plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
