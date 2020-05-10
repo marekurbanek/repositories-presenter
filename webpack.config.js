@@ -10,7 +10,7 @@ module.exports = {
     watchContentBase: true,
     hot: true,
   },
-  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
+  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html",  })],
   module: {
     rules: [
       {

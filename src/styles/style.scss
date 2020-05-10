@@ -1,0 +1,60 @@
+$navy-blue-color: #5f9ea0;
+$light-gray-color: #cecece;
+$light-red-color: rgba(255, 0, 0, 0.15);
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  width: 1280px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+#repositories-app {
+  margin: 2em 0;
+}
+
+.repository {
+  margin: 2em 0;
+  padding: 2em;
+  width: 100%;
+  box-shadow: 0px 5px 15px 2px rgba(0, 0, 0, 0.05);
+
+  &__owner {
+    font-size: 2em;
+  }
+
+  &__url {
+    text-decoration: none;
+    font-weight: bold;
+    color: $navy-blue-color;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  thead {
+    td {
+      font-weight: bold;
+      white-space: nowrap;
+    }
+  }
+  td {
+    border: 1px solid $light-gray-color;
+    padding: 1em;
+  }
+}
+
+.errors {
+  margin: 1em 0;
+  padding: 2em;
+  background: $light-red-color;
+  display: none;
+  &--show {
+    display: inline-block;
+  }
+}
