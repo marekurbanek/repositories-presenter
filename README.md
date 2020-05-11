@@ -16,4 +16,5 @@
 ### Additional Info:
 
 - App comes with example tags (some are meant to fail to show error handling)
+- In case when there is more than 1 repo tag for specific user, app will take tag with oldest date to present more repositories
 - App isn't adjusted to mobile view

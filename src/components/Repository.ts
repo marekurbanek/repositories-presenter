@@ -1,6 +1,6 @@
 import { Table } from "./Table";
 import { UsersRepositories, Column, RepositoryTagData } from "./../types";
-import { isValidDate } from "../utils";
+import { isValidDate, sortByPropAsc } from "../utils";
 import { addError } from "../services/errorService";
 
 export const getReposElements = () => document.getElementsByTagName("repos");
@@ -23,7 +23,21 @@ export const getReposTagsData = (repos: HTMLCollection): RepositoryTagData[] => 
       addError(`data-user: "${username}" or data-update: "${updated}" value is empty`);
     }
   }
-  return repositoriesData;
+  const uniqueUsersRepositories = removeDuplicatedUsers(repositoriesData);
+  return uniqueUsersRepositories;
+};
+
+const removeDuplicatedUsers = (repositoriesData: RepositoryTagData[]): RepositoryTagData[] => {
+  // In case if more than 1 user tag is present - get tag with oldest date to present more data
+  sortByPropAsc(repositoriesData, "updated");
+  let uniqueUsersRepositories: RepositoryTagData[] = [];
+
+  repositoriesData.forEach((repo: RepositoryTagData) => {
+    if (!uniqueUsersRepositories.find((uniqueRepo) => uniqueRepo.username === repo.username)) {
+      uniqueUsersRepositories.push(repo);
+    }
+  });
+  return uniqueUsersRepositories;
 };
 
 export const addRepositoriesToPage = (usersRepositories: UsersRepositories[]) => {

@@ -9,10 +9,10 @@ export type UsersRepositories = {
 };
 
 export type Repository = {
-  name?: string;
-  description?: string;
-  html_url?: string;
-  updated_at?: Date;
+  name: string;
+  description: string;
+  html_url: string;
+  updated_at: Date;
 };
 
 export type RepositoryResponse = {
